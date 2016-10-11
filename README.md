@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application allows any guest user to list public gists of any Github user
 
-Things you may want to cover:
+3 entry points :
 
-* Ruby version
+First record any Github username in the application
 
-* System dependencies
+* /users/<github_username>/create
 
-* Configuration
+Then you can list gists of the Github user you've just enter name above
 
-* Database creation
+* /users/<github_username>/gists
 
-* Database initialization
+..and list and filter gists you've bookmarked
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* /bookmarks
