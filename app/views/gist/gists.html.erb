@@ -1,0 +1,30 @@
+<h1>Listing Gists of <%= params[:name] %></h1>
+ 
+<table class="table table-striped">
+	<thead>
+		<tr>
+		  <th>Description</th>
+		  <th>Url</th>
+		  <th>Languages</th>
+		</tr>
+	</thead>
+    <tbody>
+    	<% @gists.each do |gist| %>
+    	<tr>
+		  <td><%= gist.data.description %></td>
+		  <td><a href="<%= gist.data.html_url %>"><%= gist.data.html_url %></a></td>
+		  <td><%= gist.languages%></td>
+		  <td>
+		  	<form method="post" action="/gists/<%= gist.data.id %>/bookmark">
+		  		<% unless gist.bookmarked? %>
+		  			<input type="hidden" value="<%= gist.data.id %>" name="g_id">
+		  			<input type="hidden" value="<%= gist.data.url %>" name="url">
+		  			<input type="hidden" value="<%= gist.data.html_url %>" name="html_url">
+		  			<button type="submit" class="btn btn-success">Bookmark!</button>
+		  		<% end %>
+		  	</form>
+		  </td>
+		</tr>
+		<% end %>
+    </tbody>
+</table>

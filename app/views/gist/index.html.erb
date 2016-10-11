@@ -1,0 +1,23 @@
+<h1>Listing Bookmarks</h1>
+ 
+<table class="table table-striped">
+	<thead>
+		<tr>
+		  <th>Créateur</th>
+		  <th>Lrl</th>
+		  <th>Languages</th>
+		</tr>
+	</thead>
+    <tbody>
+    	<% @bookmarks.each do |bookmark| %>
+    	<tr>
+		  <td><%= bookmark.user.name %></td>
+		  <td><%= bookmark.url %></td>
+		  <td>
+		  	<%= bookmark.languages.each do |language| %>
+		  	<%= language %>,
+		  </td>
+		</tr>
+		<% end %>
+    </tbody>
+</table>

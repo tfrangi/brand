@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brand</title>
+    <%= csrf_meta_tags %>
+	<!-- Latest compiled and minified CSS -->
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Tags: </h2>
+      <div>
+        <% Tag.all.each do |tag| %>
+          <a href="/bookmark/<%= tag.name %>/filter" class="btn btn-primary" ><%= tag.name %></a>
+        <% end %>
+      </div>
+
+      <hr>
+      <%= yield %>
+    </div>
+  </body>
+</html>
